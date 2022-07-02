@@ -1,0 +1,27 @@
+﻿<#@ template debug="false" hostspecific="True" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@Import Namespace="System.IO"#>
+<#@Import Namespace="Microsoft.VisualStudio.TextTemplating"#>
+<#@ output extension=".txt" #>
+<#
+    string templateFile = this.Host.ResolvePath("./CDMTemplate.tt");
+
+    string templateContent = File.ReadAllText(templateFile);
+
+    TextTemplatingSession session = new TextTemplatingSession();
+
+    session["MyParameter"] = "SessionValue";
+
+    var sessionHost = (ITextTemplatingSessionHost)this.Host;
+
+    sessionHost.Session = session;
+
+    Engine engine = new Engine();
+
+    string generatedContent = engine.ProcessTemplate(templateContent, this.Host);
+
+    this.Write(generatedContent);
+#>

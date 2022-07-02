@@ -1,0 +1,13 @@
+﻿<#@ template debug="false" hostspecific="True" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ parameter name="data" type="System.String"#>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@Import Namespace="System.IO"#>
+<#@Import Namespace="Microsoft.VisualStudio.TextTemplating"#>
+<#@ output extension=".txt" #>
+Test12312
+<#
+	
+#>
